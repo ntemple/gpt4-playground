@@ -12,7 +12,7 @@ import markdown from "react-syntax-highlighter/dist/cjs/languages/prism/markdown
 import python from "react-syntax-highlighter/dist/cjs/languages/prism/python";
 import cpp from "react-syntax-highlighter/dist/cjs/languages/prism/cpp";
 import json from "react-syntax-highlighter/dist/cjs/languages/prism/json";
-import MathJax from "react-mathjax";
+import { BlockMath, InlineMath } from 'react-katex';
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 
@@ -60,8 +60,8 @@ export default function AssistantMessageContent({ content, ...props }: Props) {
       );
     },
 
-    math: (props: any) => <MathJax.Node formula={props.value} />,
-    inlineMath: (props: any) => <MathJax.Node inline formula={props.value} />,
+    math: (props: any) => <BlockMath math={props.value} />;,
+    inlineMath: (props: any) => <InlineMath math={props.value} />;,
 
     code({ node, inline, className, ...props }: any) {
       const hasLang = /language-(\w+)/.exec(className || "");
