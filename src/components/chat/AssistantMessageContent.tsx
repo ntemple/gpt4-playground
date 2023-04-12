@@ -60,8 +60,8 @@ export default function AssistantMessageContent({ content, ...props }: Props) {
       );
     },
 
-    math: (props: any) => <BlockMath math={props.value} />;,
-    inlineMath: (props: any) => <InlineMath math={props.value} />;,
+    math: (props: any) => <BlockMath math={props.value} />,
+    inlineMath: (props: any) => <InlineMath math={props.value} />,
 
     code({ node, inline, className, ...props }: any) {
       const hasLang = /language-(\w+)/.exec(className || "");
